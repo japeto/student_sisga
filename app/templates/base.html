@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> SisGA </title>
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <header>
+            <h1>Estudiante</h1>
+            <nav>
+                <a href="{{ url_for('student_bp.index') }}">Principal</a>
+                <a href="{{ url_for('student_bp.create') }}">Nuevo Estudiante</a>
+            </nav>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </body>
+</html>
