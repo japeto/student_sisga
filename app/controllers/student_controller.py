@@ -40,7 +40,7 @@ def update_student_byid(student_id, first_name, last_name, email):
     return a_student
 
 def update_student_byemail(email, first_name, last_name):
-    a_student = Student.query.filter(Student.email=email)
+    a_student = Student.query.filter(Student.email==email)
     a_student.first_name=first_name
     a_student.last_name=last_name
     db.session.commit()

@@ -2,16 +2,11 @@ import os
 from flask import Flask
 from models.student import db
 from views.student_view import student_bp
+from flask_sqlalchemy import SQLAlchemy
 
-class Config:
-    SQLALCHEMY_DATABASE_URI = os.getenv(
-        "DATABASE_URL",
-        "postgresql://sisga_user:sisga_pass@sisga_database:5432/sisga_db"
-    )
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SECRET_KEY = "Est4esUn411aVeSecR3t4"
-
+# db = SQLAlchemy() # db intitialized here
 app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://sisga_user:sisga_pass@localhost:5432/sisga"
 db.init_app(app)
 
 app.register_blueprint(student_bp)

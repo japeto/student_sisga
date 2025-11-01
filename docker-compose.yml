@@ -1,0 +1,60 @@
+version: "3.9"
+
+services:
+  sisga_db:
+    build: ./database
+    container_name: sisga_db
+    restart: always
+    environment:
+      POSTGRES_USER: sisga_user
+      POSTGRES_PASSWORD: sisga_pass
+      POSTGRES_DB: sisga
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/sisga_data:/var/lib/postgresql/data:rw
+    networks:
+      - sisga_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  sisga_pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: sisga_pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@sisga.edu.co
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "8080:80"
+    depends_on:
+      - sisga_db
+    networks:
+      - sisga_net
+
+  sisga_app:
+    build: ./app
+    container_name: sisga_app
+    restart: always
+    depends_on:
+      - sisga_db
+    environment:
+      - DATABASE_URL=postgresql://sisga_user:sisga_pass@db:5432/sisga
+      - FLASK_ENV=development
+    ports:
+      - "8081:5000"
+    volumes:
+      - ./app:/app
+    networks:
+      - sisga_net
+
+
+volumes:
+  sisga_data:
+
+networks:
+  sisga_net:
+    driver: bridge
