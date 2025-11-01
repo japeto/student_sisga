@@ -1,6 +1,6 @@
 -- Create table: student
 CREATE TABLE student (
-    student_id SERIAL PRIMARY KEY AUTO_INCREMENT,
+    student_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE student (
 
 -- Create table: teacher
 CREATE TABLE teacher (
-    teacher_id SERIAL PRIMARY KEY AUTO_INCREMENT,
+    teacher_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE teacher (
 
 -- Create table: course
 CREATE TABLE course (
-    course_id SERIAL PRIMARY KEY AUTO_INCREMENT,
+    course_id SERIAL PRIMARY KEY,
     course_name VARCHAR(100) NOT NULL,
     description TEXT,
     credits INT DEFAULT 3
@@ -26,7 +26,7 @@ CREATE TABLE course (
 
 -- Many-to-many: student ↔ course
 CREATE TABLE enroll (
-    eid INT PRIMARY KEY,
+    eid SERIAL PRIMARY KEY,
     student_id INT,
     course_id INT,
     grade DECIMAL(4,2) NOT NULL,
