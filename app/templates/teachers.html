@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Lista de Profesores</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Acciones</th>
+    </tr>
+    {% for a_teacher in teachers %}
+        <tr>
+            <td>{{ a_teacher.teacher_id }}</td>
+            <td>{{ a_teacher.first_name }}</td>
+            <td>{{ a_teacher.last_name }}</td>
+            <td>
+                <a href="{{ url_for('teacher_bp.detail', teacher_id=a_teacher.teacher_id) }}">Ver más</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

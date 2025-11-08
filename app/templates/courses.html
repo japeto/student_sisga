@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Lista de Cursos</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Créditos</th>
+        <th>Acciones</th>
+    </tr>
+    {% for a_course in courses %}
+        <tr>
+            <td>{{ a_course.course_id }}</td>
+            <td>{{ a_course.course_name }}</td>
+            <td>{{ a_course.credits }}</td>
+            <td>
+                <a href="{{ url_for('course_bp.detail', course_id=a_course.course_id) }}">Ver más</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

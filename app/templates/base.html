@@ -2,15 +2,18 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title> SisGA </title>
-        <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+        <title>SisGA</title>
+        <link rel="stylesheet" href="">
     </head>
     <body>
         <header>
-            <h1>Estudiante</h1>
+            <h1>Sistema de Gestión Académica</h1>
             <nav>
-                <a href="{{ url_for('student_bp.index') }}">Principal</a>
-                <a href="{{ url_for('student_bp.create') }}">Nuevo Estudiante</a>
+                <a href="{{ url_for('student_bp.index') }}">Estudiantes</a>
+                <a href="{{ url_for('teacher_bp.index') }}">Profesores</a>
+                <a href="{{ url_for('course_bp.index') }}">Cursos</a>
+                <a href="{{ url_for('enroll_bp.index') }}">Inscripción</a>
+                <a href="{{ url_for('teach_bp.index') }}">Profesor asignado</a>
             </nav>
         </header>
         <main>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Curso: {{ course.course_name }}</h2>
+
+<form>
+    <label>Nombre del Curso</label>
+    <input value="{{ course.course_name }}"/>
+
+    <label>Descripción</label>
+    <textarea>{{ course.description }}</textarea>
+
+    <label>Créditos</label>
+    <input value="{{ course.credits }}"/>
+
+    <button type="submit">Actualizar</button>
+</form>
+{% endblock content %}

@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Estudiante {{student.first_name}}, {{student.last_name}}</h2>
+<h2>Estudiante {{student.first_name}} {{student.last_name}}</h2>
 
 <form>
-    <label>Nombres</label>
-    <input value="{{ student.first_name }}"/>
+    <label>Nombre</label>
+    <input value="{{ a_student.first_name }}"/>
 
     <label>Apellidos</label>
     <input value="{{ student.last_name }}"/>
@@ -13,9 +13,10 @@
     <input value="{{ student.email }}"/>
 
     <label>Matricula</label>
-    <input value="{{ student.enrollment_date }}" readonly/>
+    <input value="{{ student.enrollment_date }}"/>
 
     <button type="submit">Actualizar</button>
+
 </form>
 
-{% endblock %}
+{% endblock content %}

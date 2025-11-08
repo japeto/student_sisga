@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Asignaciones de Profesores a Cursos</h2>
+
+<table>
+    <tr>
+        <th>Profesor</th>
+        <th>Curso</th>
+        <th>Fecha de Asignación</th>
+    </tr>
+    {% for t in teachs %}
+        <tr>
+            <td>{{ t.teacher_id }}</td>
+            <td>{{ t.course_id }}</td>
+            <td>{{ t.assignment_date }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

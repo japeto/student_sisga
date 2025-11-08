@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Detalle de Inscripción</h2>
+
+<form>
+    <label>ID Inscripción</label>
+    <input value="{{ enroll.eid }}" readonly/>
+
+    <label>ID Estudiante</label>
+    <input value="{{ enroll.student_id }}" readonly/>
+
+    <label>ID Curso</label>
+    <input value="{{ enroll.course_id }}" readonly/>
+
+    <label>Nota</label>
+    <input value="{{ enroll.grade }}"/>
+
+    <label>Fecha de Inscripción</label>
+    <input value="{{ enroll.enrollment_date }}"/>
+
+    <button type="submit">Actualizar</button>
+</form>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Profesor {{ teacher.first_name }} {{ teacher.last_name }}</h2>
+
+<form>
+    <label>Nombre</label>
+    <input value="{{ teacher.first_name }}"/>
+
+    <label>Apellidos</label>
+    <input value="{{ teacher.last_name }}"/>
+
+    <label>Correo</label>
+    <input value="{{ teacher.email }}"/>
+
+    <label>Fecha de Contratación</label>
+    <input value="{{ teacher.hire_date }}"/>
+
+    <button type="submit">Actualizar</button>
+</form>
+{% endblock content %}

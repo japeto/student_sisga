@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Lista de Inscripciones</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Estudiante</th>
+        <th>Curso</th>
+        <th>Nota</th>
+        <th>Fecha de Inscripción</th>
+    </tr>
+    {% for e in enrolls %}
+        <tr>
+            <td>{{ e.eid }}</td>
+            <td>{{ e.student_id }}</td>
+            <td>{{ e.course_id }}</td>
+            <td>{{ e.grade }}</td>
+            <td>{{ e.enrollment_date }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

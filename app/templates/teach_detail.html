@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Detalle de Asignación</h2>
+
+<form>
+    <label>ID Profesor</label>
+    <input value="{{ teach.teacher_id }}" readonly/>
+
+    <label>ID Curso</label>
+    <input value="{{ teach.course_id }}" readonly/>
+
+    <label>Fecha de Asignación</label>
+    <input value="{{ teach.assignment_date }}"/>
+
+    <button type="submit">Actualizar</button>
+</form>
+{% endblock content %}

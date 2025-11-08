@@ -1,13 +1,14 @@
-from flask_sqlalchemy import SQLAlchemy
-db = SQLAlchemy()
+#from flask_sqlalchemy import SQLAlchemy
 
-class Student(db.Model):
-    __tablename__ = 'student'
+#db = SQLAlchemy()
 
-    course_id   =        db.Column(db.Integer, primary_key=True)
-    course_name =        db.Column(db.String(50), nullable=False)
-    description =        db.Column(db.String(50), nullable=False)
-    credits =        db.Column(db.String(50), nullable=False)
+class Course(db.Model):
+    __tablename__ = 'course'
+
+    course_id = db.Column(db.Integer, primary_key=True)
+    course_name = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text)
+    credits = db.Column(db.Integer, default=3)
 
     def __repr__(self):
-        return f"Course, {self.course_name}, {self.credits}"
+        return f"Curso: {self.course_name}"
