@@ -1,7 +1,7 @@
 #from flask_sqlalchemy import SQLAlchemy
-
 #db = SQLAlchemy()
 
+from . import db 
 
 class Enroll(db.Model):
     __tablename__ = 'enroll'

@@ -1,6 +1,6 @@
 #from flask_sqlalchemy import SQLAlchemy
-
 #db = SQLAlchemy()
+from . import db
 
 class Teach(db.Model):
     __tablename__ = 'teach'
